@@ -1,0 +1,53 @@
+.suspicious {
+background-color: rgba(179, 204, 36, 0.81);
+
+}
+.danger {
+background-color: rgb(183, 88, 16);
+
+}
+tr {
+    background-color: #232428;
+    height: 50px;
+   
+}
+
+
+td, th {
+    text-align: center;
+    color: white;
+}
+.table-container{
+    min-height: 800px;
+}
+button {
+    color: aliceblue;
+    background-color: #198754;
+    border-radius: 20%;
+
+}
+.normal{
+    background-color: #1e1987;
+}
+.text-ellipsis {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 250px;
+   
+  }
+  .hash-cell {
+    width: 150px; /* Задайте тут відповідну ширину */
+    padding: 15px;
+  }
+  
+  .from-cell {
+    width: 300px; /* Задайте тут відповідну ширину */
+    margin-right: 20px;
+    
+  }
+  
+  .to-cell {
+    width:300px; /* Задайте тут відповідну ширину */
+  }
+  

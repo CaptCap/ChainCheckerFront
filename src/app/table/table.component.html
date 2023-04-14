@@ -1,0 +1,54 @@
+<div *ngIf="transactions.length==0; else elseblock"class="table-container ">
+    <table class = 'table table-striped' >
+        <thead>
+            <tr>
+            <th class="hash-cell">hash</th>
+            <!-- <th>transactionType</th> -->
+            <th>date</th>
+            <th class="from-cell">from</th>
+            <th class="to-cell">to</th>
+            <th>value</th>
+            <th>status</th>
+            </tr>
+        </thead>
+        <tr *ngFor = 'let f of service.transactions' [ngClass]="{'normal': f.status===1,'suspicious': f.status === 2, 'danger' : f.status ===3}">
+            <td class="mx-4 text-ellipsis hash-cell" >{{f.hash}}</td>
+            <!-- <td>{{f.transactionType}}</td> -->
+            <td >{{f.date}}</td>
+            <td class="text-ellipsis from-cell">{{f.from}}</td>
+            <td class="text-ellipsis to-cell">{{f.to}}</td>
+            <td>{{f.value}}</td>
+            <!-- <td>{{f.status}}</td> -->
+            <td><button (click)="checkStatus(f.hash)" class="btn btn-primary btn-success">Check</button></td>
+            
+        </tr>
+
+    </table>
+</div>
+<ng-template #elseblock class="table-container text-ellipsis ">
+    <table class = 'table table-striped'  >
+        <thead>
+            <tr>
+            <th class="hash-cell">hash</th>
+            <!-- <th>transactionType</th> -->
+            <th>date</th>
+            <th class="from-cell">from</th>
+            <th class="to-cell">to</th>
+            <th>value</th>
+            <th>status</th>
+            </tr>
+        </thead>
+        <tr *ngFor = 'let f of transactions' [ngClass]="{'normal': f.status===1,'suspicious': f.status === 2, 'danger' : f.status ===3}">
+            <td class="mx-4 text-ellipsis hash-cell" >{{f.hash}}</td>
+            <!-- <td>{{f.transactionType}}</td> -->
+            <td >{{f.date}}</td>
+            <td class="text-ellipsis">{{f.from}}</td>
+            <td class="text-ellipsis">{{f.to}}</td>
+            <td>{{f.value}}</td>
+            <!-- <td>{{f.status}}</td> -->
+            <td><button (click)="checkStatus(f.hash)" class="btn btn-primary btn-success">Check</button></td>
+            
+        </tr>
+
+    </table>
+</ng-template>

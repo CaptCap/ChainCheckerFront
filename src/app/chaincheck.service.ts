@@ -2,6 +2,8 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { ChainTransaction, TransactionStatus } from './entities/chainTransaction';
+import { environment } from '../environments/environment';
+
 
 
 
@@ -9,6 +11,8 @@ import { ChainTransaction, TransactionStatus } from './entities/chainTransaction
   providedIn: 'root'
 })
 export class ChaincheckService {
+  private apiUrl = environment.apiUrl;
+
   transactions:ChainTransaction[]=[
     {hash: 'Download', transactionType: 'Download',date: 'Download', from : 'sfdvsfv', to:'dsjjkjsc', value : '10000',status: TransactionStatus.Normal},
     
@@ -33,5 +37,7 @@ export class ChaincheckService {
   changeTransactionStatus(hash:string, transactions:ChainTransaction[]){
     this.getTransactionStatus(hash).subscribe(t=>transactions[transactions.findIndex(x=>x.hash===hash)].status=t)
   }
+  getSomeData() {
+    return this.http.get(`${this.apiUrl}/some-endpoint`);}
 
 }

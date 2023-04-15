@@ -1,5 +1,5 @@
 export const environment = {
     production: false,
-    apiUrl: 'chainchackerapi.azurewebsites.net'
+    apiUrl: 'https://chainchackerapi.azurewebsites.net/api'
   };
   

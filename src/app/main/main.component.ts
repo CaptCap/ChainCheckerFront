@@ -12,7 +12,7 @@ export class MainComponent implements OnInit {
   transactions:ChainTransaction[]=[ ]
   constructor(public http:HttpClient) { }
   getTransactions():Observable<ChainTransaction[]>{
-    return this.http.get<ChainTransaction[]>('https://localhost:7222/analise/getMain/1')
+    return this.http.get<ChainTransaction[]>('https://chainchackerapi.azurewebsites.net/analise/getMain/1')
   }
   saveTransactions(){
     this.getTransactions().subscribe(t=>this.transactions=t)

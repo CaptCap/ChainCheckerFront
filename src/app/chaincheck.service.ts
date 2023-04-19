@@ -23,13 +23,13 @@ export class ChaincheckService {
 
   constructor(public http:HttpClient) { }
   getTransactions(hash:string):Observable<ChainTransaction[]>{
-    return this.http.get<ChainTransaction[]>('https://localhost:7222/analise/getByWallet/' + hash + '/1')
+    return this.http.get<ChainTransaction[]>('https://chainchackerapi.azurewebsites.net/analise/getByWallet/' + hash + '/1')
   }
   saveTransactions(hash:string){
     this.getTransactions(hash).subscribe(t=>this.transactions=t)
   }
   getTransactionStatus(hash:string):Observable<TransactionStatus>{
-    return this.http.get<TransactionStatus>('https://localhost:7222/analise/getTransactionStatus/' + hash )
+    return this.http.get<TransactionStatus>(' https://chainchackerapi.azurewebsites.net/analise/getTransactionStatus/' + hash )
   }
   saveTransactionStatus(hash:string){
     this.getTransactionStatus(hash).subscribe(t=>this.transactions[this.transactions.findIndex(x=>x.hash===hash)].status=t)
